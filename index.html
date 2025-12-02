@@ -1,448 +1,432 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.1">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Digital - Pixiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #FF6B35 0%, #FFB830 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #FF6B35, #FFB830);
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .tagline {
+            font-size: 18px;
+            font-style: italic;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: #FF6B35;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #FFB830;
+            font-weight: bold;
+        }
+
+        .menu-item {
+            background: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            border-left: 4px solid #FF6B35;
+            transition: transform 0.2s;
+        }
+
+        .menu-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .item-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .item-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #FF6B35;
+        }
+
+        .item-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .customization-section {
+            background: #fff3e0;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .ingredient-category {
+            margin-bottom: 15px;
+        }
+
+        .category-name {
+            font-weight: bold;
+            color: #FF6B35;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .ingredient-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .ingredient-tag {
+            background: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .premium-tag {
+            background: #FFB830;
+            color: white;
+            border: none;
+        }
+
+        .order-button {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 18px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            width: 100%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .order-button:hover {
+            background: #20BA5A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-icon {
+            font-size: 24px;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .info-box p {
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 5px;
+        }
+
+        .size-info {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+            gap: 10px;
+        }
+
+        .size-card {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .size-name {
+            font-weight: bold;
+            color: #FF6B35;
+            margin-bottom: 5px;
+        }
+
+        .size-detail {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .footer {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-info {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .location {
+            color: #FFB830;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="es"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Menú Digital - Pixiz&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>* {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Arial', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #FF6B35 0%, #FFB830 100%);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>min-height: 100vh;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 600px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 10px 30px rgba(0,0,0,0.3);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.header {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #FF6B35, #FFB830);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 30px 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.logo {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 48px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 2px 2px 4px rgba(0,0,0,0.2);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.tagline {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-style: italic;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.95;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.content {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.section {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 30px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.section-title {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 24px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #FF6B35;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding-bottom: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 3px solid #FFB830;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.menu-item {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: #f8f9fa;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-left: 4px solid #FF6B35;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: transform 0.2s;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.menu-item:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateX(5px);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 8px rgba(0,0,0,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.item-header {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.item-name {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #333;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.item-price {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #FF6B35;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.item-description {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 14px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #666;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.4;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.customization-section {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: #fff3e0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ingredient-category {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.category-name {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #FF6B35;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ingredient-list {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-wrap: wrap;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ingredient-tag {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 6px 12px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 13px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #333;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #ddd;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.premium-tag {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: #FFB830;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.order-button {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: #25D366;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 18px 30px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.order-button:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: #20BA5A;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-2px);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.whatsapp-icon {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 24px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.info-box {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: #e3f2fd;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-left: 4px solid #2196F3;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.info-box p {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #333;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.6;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.size-info {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: space-around;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.size-card {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex: 1;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.size-name {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #FF6B35;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.size-detail {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #666;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.footer {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: #333;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.footer-info {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 14px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.location {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #FFB830;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="header"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="logo"&gt;PIXIZ&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="tagline"&gt;Elige tu sabor&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="info-box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;strong&gt;¡Bienvenido a Pixiz!&lt;/strong&gt;&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Crea tu pizza perfecta eligiendo cada ingrediente o selecciona nuestras opciones base.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="size-info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="size-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="size-name"&gt;Personal&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="size-detail"&gt;20cm · 2-3 rebanadas&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="size-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="size-name"&gt;Mediana&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="size-detail"&gt;30cm · 6-8 rebanadas&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="size-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="size-name"&gt;Familiar&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="size-detail"&gt;40cm · 10-12 rebanadas&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="section"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="section-title"&gt;🍕 Pizzas Base&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="menu-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="item-header"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Pizza Queso&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-price"&gt;$100&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="item-description"&gt;Base de tomate, doble queso mozzarella y orégano italiano&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="menu-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="item-header"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Pizza Margarita&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-price"&gt;$115&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="item-description"&gt;Base de tomate, mozzarella, albahaca fresca y aceite de oliva&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="menu-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="item-header"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Clásica Pepperoni&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-price"&gt;$120&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="item-description"&gt;Base de tomate, mozzarella y pepperoni premium&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="section"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="section-title"&gt;✨ Pizzas Personalizadas&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="menu-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="item-header"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;2 Ingredientes&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-price"&gt;$135&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="item-description"&gt;Elige tu base, queso y 2 ingredientes de tu preferencia&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="menu-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="item-header"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;3 Ingredientes&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-price"&gt;$150&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="item-description"&gt;Elige tu base, queso y 3 ingredientes de tu preferencia&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="menu-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="item-header"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Ingrediente Extra&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-price"&gt;+$15&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="item-description"&gt;Agrega ingredientes adicionales a tu pizza&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="menu-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="item-header"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Ingrediente Premium&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-price"&gt;+$20&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="item-description"&gt;Tocino, chorizo artesanal, arrachera, camarones, aguacate&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="section"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="section-title"&gt;🎨 Personaliza Tu Pizza&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="customization-section"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ingredient-category"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="category-name"&gt;BASES DISPONIBLES:&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ingredient-list"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Salsa de tomate&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Salsa picante&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Frijoles refritos&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Salsa blanca&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ingredient-category"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="category-name"&gt;QUESOS:&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ingredient-list"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Mozzarella&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Oaxaca&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Gouda&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Mezcla especial&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ingredient-category"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="category-name"&gt;CARNES ($15):&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ingredient-list"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Pepperoni&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Jamón&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Salchicha&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Pollo&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Carne molida&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ingredient-category"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="category-name"&gt;CARNES PREMIUM (+$20):&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ingredient-list"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag premium-tag"&gt;Tocino&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag premium-tag"&gt;Chorizo artesanal&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag premium-tag"&gt;Arrachera&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag premium-tag"&gt;Camarones&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ingredient-category"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="category-name"&gt;VEGETALES ($15):&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ingredient-list"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Cebolla&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Pimiento&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Champiñones&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Jitomate cherry&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Aceitunas&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Elote&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Espinacas&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Piña&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Jalapeños&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag"&gt;Chiles güeros&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ingredient-category"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="category-name"&gt;VEGETALES PREMIUM (+$20):&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ingredient-list"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag premium-tag"&gt;Aguacate fresco&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag premium-tag"&gt;Cebolla caramelizada&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag premium-tag"&gt;Alcachofas&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="ingredient-tag premium-tag"&gt;Rúcula&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="order-button" onclick="ordenarWhatsApp()"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="whatsapp-icon"&gt;📱&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;ORDENAR POR WHATSAPP&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="info-box" style="margin-top: 20px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;strong&gt;💡 ¿Cómo ordenar?&lt;/strong&gt;&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;1. Presiona el botón de WhatsApp&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;2. Dinos tu nombre y dirección&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;3. Describe tu pizza ideal o elige una base&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;4. ¡Listo! Te confirmamos tu pedido&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="footer"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="footer-info"&gt;📍 &lt;span class="location"&gt;Av. Adolfo Lugo Verduzco #62, Huichapan, Hidalgo&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="footer-info"&gt;🕐 Horario: Lun-Dom 12:00 - 22:00 hrs&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="footer-info"&gt;🚚 Envío a domicilio: $25 | Gratis en pedidos +$250&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="footer-info" style="margin-top: 15px; color: #FFB830;"&gt;Tu pizza, tu creatividad, tu precio justo&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function ordenarWhatsApp() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Número de WhatsApp Business de Pixiz</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const numeroWhatsApp = '528147963050'; // México (52) + número</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const mensaje = `¡Hola Pixiz! 🍕\n\nMe gustaría hacer un pedido.\n\n*Información:*\n- Nombre: \n- Dirección: \n- Teléfono: \n\n*Mi pedido:*\n(Describe tu pizza o elige una opción del menú)\n\nGracias!`;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const mensajeCodificado = encodeURIComponent(mensaje);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>window.open(urlWhatsApp, '_blank');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+    <div class="container">
+        <div class="header">
+            <div class="logo">PIXIZ</div>
+            <div class="tagline">Elige tu sabor</div>
+        </div>
+
+        <div class="content">
+            <div class="info-box">
+                <p><strong>¡Bienvenido a Pixiz!</strong></p>
+                <p>Crea tu pizza perfecta eligiendo cada ingrediente o selecciona nuestras opciones base.</p>
+                <div class="size-info">
+                    <div class="size-card">
+                        <div class="size-name">Personal</div>
+                        <div class="size-detail">20cm · 2-3 rebanadas</div>
+                    </div>
+                    <div class="size-card">
+                        <div class="size-name">Mediana</div>
+                        <div class="size-detail">30cm · 6-8 rebanadas</div>
+                    </div>
+                    <div class="size-card">
+                        <div class="size-name">Familiar</div>
+                        <div class="size-detail">40cm · 10-12 rebanadas</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">🍕 Pizzas Base</div>
+                
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Pizza Queso</span>
+                        <span class="item-price">$100</span>
+                    </div>
+                    <div class="item-description">Base de tomate, doble queso mozzarella y orégano italiano</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Pizza Margarita</span>
+                        <span class="item-price">$115</span>
+                    </div>
+                    <div class="item-description">Base de tomate, mozzarella, albahaca fresca y aceite de oliva</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Clásica Pepperoni</span>
+                        <span class="item-price">$120</span>
+                    </div>
+                    <div class="item-description">Base de tomate, mozzarella y pepperoni premium</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">✨ Pizzas Personalizadas</div>
+                
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">2 Ingredientes</span>
+                        <span class="item-price">$135</span>
+                    </div>
+                    <div class="item-description">Elige tu base, queso y 2 ingredientes de tu preferencia</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">3 Ingredientes</span>
+                        <span class="item-price">$150</span>
+                    </div>
+                    <div class="item-description">Elige tu base, queso y 3 ingredientes de tu preferencia</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Ingrediente Extra</span>
+                        <span class="item-price">+$15</span>
+                    </div>
+                    <div class="item-description">Agrega ingredientes adicionales a tu pizza</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Ingrediente Premium</span>
+                        <span class="item-price">+$20</span>
+                    </div>
+                    <div class="item-description">Tocino, chorizo artesanal, arrachera, camarones, aguacate</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">🎨 Personaliza Tu Pizza</div>
+                
+                <div class="customization-section">
+                    <div class="ingredient-category">
+                        <div class="category-name">BASES DISPONIBLES:</div>
+                        <div class="ingredient-list">
+                            <span class="ingredient-tag">Salsa de tomate</span>
+                            <span class="ingredient-tag">Salsa picante</span>
+                            <span class="ingredient-tag">Frijoles refritos</span>
+                            <span class="ingredient-tag">Salsa blanca</span>
+                        </div>
+                    </div>
+
+                    <div class="ingredient-category">
+                        <div class="category-name">QUESOS:</div>
+                        <div class="ingredient-list">
+                            <span class="ingredient-tag">Mozzarella</span>
+                            <span class="ingredient-tag">Oaxaca</span>
+                            <span class="ingredient-tag">Gouda</span>
+                            <span class="ingredient-tag">Mezcla especial</span>
+                        </div>
+                    </div>
+
+                    <div class="ingredient-category">
+                        <div class="category-name">CARNES ($15):</div>
+                        <div class="ingredient-list">
+                            <span class="ingredient-tag">Pepperoni</span>
+                            <span class="ingredient-tag">Jamón</span>
+                            <span class="ingredient-tag">Salchicha</span>
+                            <span class="ingredient-tag">Pollo</span>
+                            <span class="ingredient-tag">Carne molida</span>
+                        </div>
+                    </div>
+
+                    <div class="ingredient-category">
+                        <div class="category-name">CARNES PREMIUM (+$20):</div>
+                        <div class="ingredient-list">
+                            <span class="ingredient-tag premium-tag">Tocino</span>
+                            <span class="ingredient-tag premium-tag">Chorizo artesanal</span>
+                            <span class="ingredient-tag premium-tag">Arrachera</span>
+                            <span class="ingredient-tag premium-tag">Camarones</span>
+                        </div>
+                    </div>
+
+                    <div class="ingredient-category">
+                        <div class="category-name">VEGETALES ($15):</div>
+                        <div class="ingredient-list">
+                            <span class="ingredient-tag">Cebolla</span>
+                            <span class="ingredient-tag">Pimiento</span>
+                            <span class="ingredient-tag">Champiñones</span>
+                            <span class="ingredient-tag">Jitomate cherry</span>
+                            <span class="ingredient-tag">Aceitunas</span>
+                            <span class="ingredient-tag">Elote</span>
+                            <span class="ingredient-tag">Espinacas</span>
+                            <span class="ingredient-tag">Piña</span>
+                            <span class="ingredient-tag">Jalapeños</span>
+                            <span class="ingredient-tag">Chiles güeros</span>
+                        </div>
+                    </div>
+
+                    <div class="ingredient-category">
+                        <div class="category-name">VEGETALES PREMIUM (+$20):</div>
+                        <div class="ingredient-list">
+                            <span class="ingredient-tag premium-tag">Aguacate fresco</span>
+                            <span class="ingredient-tag premium-tag">Cebolla caramelizada</span>
+                            <span class="ingredient-tag premium-tag">Alcachofas</span>
+                            <span class="ingredient-tag premium-tag">Rúcula</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="order-button" onclick="ordenarWhatsApp()">
+                <span class="whatsapp-icon">📱</span>
+                <span>ORDENAR POR WHATSAPP</span>
+            </button>
+
+            <div class="info-box" style="margin-top: 20px;">
+                <p><strong>💡 ¿Cómo ordenar?</strong></p>
+                <p>1. Presiona el botón de WhatsApp</p>
+                <p>2. Dinos tu nombre y dirección</p>
+                <p>3. Describe tu pizza ideal o elige una base</p>
+                <p>4. ¡Listo! Te confirmamos tu pedido</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-info">📍 <span class="location">Av. Adolfo Lugo Verduzco #62, Huichapan, Hidalgo</span></div>
+            <div class="footer-info">🕐 Horario: Lun-Dom 12:00 - 22:00 hrs</div>
+            <div class="footer-info">🚚 Envío a domicilio: $25 | Gratis en pedidos +$250</div>
+            <div class="footer-info" style="margin-top: 15px; color: #FFB830;">Tu pizza, tu creatividad, tu precio justo</div>
+        </div>
+    </div>
+
+    <script>
+        function ordenarWhatsApp() {
+            // Número de WhatsApp Business de Pixiz
+            const numeroWhatsApp = '528147963050'; // México (52) + número
+            
+            const mensaje = `¡Hola Pixiz! 🍕\n\nMe gustaría hacer un pedido.\n\n*Información:*\n- Nombre: \n- Dirección: \n- Teléfono: \n\n*Mi pedido:*\n(Describe tu pizza o elige una opción del menú)\n\nGracias!`;
+            
+            const mensajeCodificado = encodeURIComponent(mensaje);
+            const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
+            
+            window.open(urlWhatsApp, '_blank');
+        }
+    </script>
 </body>
 </html>
